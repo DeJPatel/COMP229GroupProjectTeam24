@@ -4,7 +4,7 @@
 <asp:Content ID="content" ContentPlaceHolderID="contentPlaceHolder" Runat="server">
   <span class="CatalogTitle">Welcome to Centennial BalloonShop!! </span>
   <br />
-  <span class="CatalogDescription">This week we have a special price for these fantastic products: </span>
+  <span class="CatalogDescription">This week we have a special price for these fantasfftic products: </span>
   <br />
   <uc1:ProductsList ID="ProductsList1" runat="server" />
 </asp:Content>
