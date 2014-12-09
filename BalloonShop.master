@@ -11,7 +11,7 @@
 <head runat="server">
 
 <title>Game Store</title>
-    <meta name="description" content=""/>
+    <meta name="description" content="" />
     <meta name="author" content=""/>
 
 
@@ -52,17 +52,17 @@
             </asp:ContentPlaceHolder>
         </div>
         
-         <%--<table>
+         <table>
           <tr>
             <td>
-              <uc2:DepartmentsList ID="DepartmentsList1" runat="server" />
+              <%--<uc2:DepartmentsList ID="DepartmentsList1" runat="server" />--%>
               <br />
               <uc3:CategoriesList ID="CategoriesList1" runat="server" />
               <br />
               <uc6:CartSummary ID="CartSummary1" runat="server" />
             </td>
           </tr>
-        </table>--%>
+        </table>
 
         <footer>
             <div class="footer-inner container">
