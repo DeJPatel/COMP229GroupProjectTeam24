@@ -4,7 +4,9 @@
 <%@ Register Src="UserControls/ProductRecommendations.ascx" TagName="ProductRecommendations"
   TagPrefix="uc1" %>
 <%@ Register src="UserControls/ProductReview.ascx" tagname="ProductReview" tagprefix="uc2" %>
+
 <asp:Content ID="content" ContentPlaceHolderID="contentPlaceHolder" runat="Server">
+<div style=" border-radius:5px;background:#fff;padding:15px;  ">
   <br />
   <asp:Label CssClass="ProductTitle" ID="titleLabel" runat="server" Text="Label"></asp:Label>
   <br />
@@ -21,35 +23,45 @@
   <asp:Button ID="continueShoppingButton" CssClass="SmallButtonText" runat="server" Text="Continue Shopping" OnClick="continueShoppingButton_Click" />
   <br />
   <br />
+</div>
+    <br/>
+<div style="  border-radius:5px;background:#fff;padding:15px;  ">
   <uc1:ProductRecommendations id="ProductRecommendations1" runat="server">
   </uc1:ProductRecommendations>
+    </div>
     <br />
-    <asp:DataList ID="DataList2" runat="server" DataSourceID="RSummaryDS" Width="191px">
-        <ItemTemplate>
-            (
-            <asp:Label ID="totalLabel" runat="server" Text='<%# Eval("total") %>' />
-            Reviews)<br />
-            <%--totalsum:
-            <asp:Label ID="totalsumLabel" runat="server" Text='<%# Eval("totalsum") %>' />
-            <br />--%>
-            Overall Rating:
-            <%--<asp:Label ID="finalRatingLabel" runat="server" Text='<%# Eval("finalRating") %>' />--%><span class='rating-static rating-<%# (Eval("finalRating")) %>'></span>
-            <br />
-<br />
-        </ItemTemplate>
-    </asp:DataList>
+     <asp:Label ID="Label2" runat="server" Text="Review Summary" Font-Size="Large"></asp:Label>
+    <div style="  border-radius:5px;background:#fff;padding:15px;  ">
+       
+        <asp:DataList ID="DataList2" runat="server" DataSourceID="RSummaryDS" Width="191px" >
+            <ItemTemplate>
+                
+
+                <%--totalsum:
+                <asp:Label ID="totalsumLabel" runat="server" Text='<%# Eval("totalsum") %>' />
+                <br />--%>
+                Overall Rating:
+                <%--<asp:Label ID="finalRatingLabel" runat="server" Text='<%# Eval("finalRating") %>' />--%><span class='rating-static rating-<%# (Eval("finalRating")) %>'></span>
+                (
+                <asp:Label ID="totalLabel" runat="server" Text='<%# Eval("total") %>' />
+                Reviews)
+            </ItemTemplate>
+        </asp:DataList>
+    </div>
+
     <asp:SqlDataSource ID="RSummaryDS" runat="server" ConnectionString="<%$ ConnectionStrings:BalloonShopConnection %>" SelectCommand="SELECT COUNT(Rating) AS total, SUM(Rating) AS totalsum, SUM(Rating) / COUNT(Rating) AS finalRating FROM Review WHERE (ProductID = @ProductID)">
         <SelectParameters>
             <asp:QueryStringParameter Name="ProductID" QueryStringField="ProductID" />
         </SelectParameters>
     </asp:SqlDataSource>
-    <hr style="text-align: left" />
-    <br />
-    <asp:Label ID="Label1" runat="server" Text="Game Reviews"></asp:Label>
-    <br />
-    <hr />
+    <br/>
+    <asp:Label ID="Label1" runat="server" Text="Game Reviews" Font-Size="Large"></asp:Label>
+    <div style="  border-radius:5px;background:#fff;padding:15px;  ">
     <asp:DataList ID="DataList1" runat="server" DataSourceID="ReviewDS" >
+       
+    
         <ItemTemplate>
+
             <style>.rating-static {
               width: 60px;
               height: 16px;
@@ -86,11 +98,15 @@
             <asp:Label ID="ReviewDateLabel" runat="server" Font-Italic="True" Text='<%# Eval("ReviewDate", "{0:MMMM dd, yyyy HH:mm}") %>' />
             &nbsp;
             <asp:Label ID="ReviewLabel" runat="server" Text='<%# Eval("Review") %>' />
-            <br />
-            <br />
+                        <hr style="width:900px;" />
+
         </ItemTemplate>
     </asp:DataList>
+                </div>
+    <br/>
+    <div style=" border-radius:5px;background:#fff;padding:15px;  ">
     <asp:SqlDataSource ID="ReviewDS" runat="server" ConnectionString="<%$ ConnectionStrings:BalloonShopConnectionString %>" SelectCommand="SELECT [NickName], [ReviewTitle], [Rating], [ReviewDate], [Location], [Review] FROM [Review] WHERE ([ProductID] = @ProductID)">
+        
         <SelectParameters>
             <asp:QueryStringParameter Name="ProductID" QueryStringField="ProductID" Type="Int32" />
         </SelectParameters>
@@ -98,5 +114,7 @@
     <uc2:ProductReview ID="ProductReview1" runat="server" />
     <br />
     <br />
+        </div>
+    <br/>
     </asp:Content>
 
