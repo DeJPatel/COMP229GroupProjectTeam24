@@ -1,5 +1,5 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeFile="CategoriesList.ascx.cs" Inherits="CategoriesList" %>
-<asp:DataList ID="list" runat="server" CssClass="CategoryListContent" Width="200px">
+<asp:DataList ID="list" runat="server"  Width="200px">
   <ItemTemplate>
     &nbsp;&raquo;
     <asp:HyperLink 
@@ -13,8 +13,9 @@
     &nbsp;&laquo;
   </ItemTemplate>
   <HeaderTemplate>
-    Choose a Category
+      <div style="background-color:#0094ff;color:#fff;">Choose a Category</div>
   </HeaderTemplate>
-  <HeaderStyle CssClass="CategoryListHead" />
-</asp:DataList><asp:Label ID="brLabel" runat="server" Text="" />
+</asp:DataList>
+<div style="background-color:#0094ff;color:#fff; margin-bottom:-22px;"><asp:Label ID="brLabel" runat="server" Text=""/></div>
+
   

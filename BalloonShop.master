@@ -46,24 +46,17 @@
                 </nav>
             </div>
         </header>
-        
+        <div style="float:right;margin-right:260px;">
+                  <uc3:CategoriesList ID="CategoriesList1" runat="server" />
+                  <br />
+                  <uc6:CartSummary ID="CartSummary1" runat="server" />
+              </div>
+
         <div class="contentHolder">
             <asp:ContentPlaceHolder ID="contentPlaceHolder" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-        
-         <table>
-          <tr>
-            <td>
-              <%--<uc2:DepartmentsList ID="DepartmentsList1" runat="server" />--%>
-              <br />
-              <uc3:CategoriesList ID="CategoriesList1" runat="server" />
-              <br />
-              <uc6:CartSummary ID="CartSummary1" runat="server" />
-            </td>
-          </tr>
-        </table>
-
+              
         <footer>
             <div class="footer-inner container">
                 <div class="social footer-columns one-third column">

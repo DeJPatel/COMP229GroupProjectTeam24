@@ -9,4 +9,5 @@ Title="BalloonShop - The Product Catalog" %>
   <asp:Label ID="catalogDescriptionLabel" CssClass="CatalogDescription" Runat="server" />
   <br />
   <uc1:ProductsList ID="ProductsList1" runat="server" />
+    <div style="height:100px;"></div>
 </asp:Content>

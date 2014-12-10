@@ -44,5 +44,6 @@
   <br />
   <uc1:ProductRecommendations id="ProductRecommendations1" runat="server">
   </uc1:ProductRecommendations>
+    <div style="height:180px;"></div>
 </asp:Content>
 
