@@ -23,6 +23,26 @@
   <br />
   <uc1:ProductRecommendations id="ProductRecommendations1" runat="server">
   </uc1:ProductRecommendations>
+    <br />
+    <asp:DataList ID="DataList2" runat="server" DataSourceID="RSummaryDS" Width="191px">
+        <ItemTemplate>
+            (
+            <asp:Label ID="totalLabel" runat="server" Text='<%# Eval("total") %>' />
+            Reviews)<br />
+            <%--totalsum:
+            <asp:Label ID="totalsumLabel" runat="server" Text='<%# Eval("totalsum") %>' />
+            <br />--%>
+            Overall Rating:
+            <%--<asp:Label ID="finalRatingLabel" runat="server" Text='<%# Eval("finalRating") %>' />--%><span class='rating-static rating-<%# (Eval("finalRating")) %>'></span>
+            <br />
+<br />
+        </ItemTemplate>
+    </asp:DataList>
+    <asp:SqlDataSource ID="RSummaryDS" runat="server" ConnectionString="<%$ ConnectionStrings:BalloonShopConnection %>" SelectCommand="SELECT COUNT(Rating) AS total, SUM(Rating) AS totalsum, SUM(Rating) / COUNT(Rating) AS finalRating FROM Review WHERE (ProductID = @ProductID)">
+        <SelectParameters>
+            <asp:QueryStringParameter Name="ProductID" QueryStringField="ProductID" />
+        </SelectParameters>
+    </asp:SqlDataSource>
     <hr style="text-align: left" />
     <br />
     <asp:Label ID="Label1" runat="server" Text="Game Reviews"></asp:Label>
